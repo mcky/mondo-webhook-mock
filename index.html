@@ -3,20 +3,29 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Mondo webhook mock</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-	<input type="text" placeholder="account ID (random)" id="accountField" />
+	<div class="container">
 
-	<input type="text" placeholder="transaction ID (random)" id="transactionField" />
+		<div class="row">
+			<input class="field" type="text" placeholder="Account ID (random)" id="accountField" />
+			<input class="field" type="text" placeholder="Transaction ID (random)" id="transactionField" />
+		</div>
 
-	<input type="number" placeholder="amount (random)" id="amountField" />
+		<div class="row">
+			<input class="field" type="number" placeholder="Amount (random)" id="amountField" />
+			<select class="field" id="locationSelect"></select>
+		</div>
 
-	<select id="locationSelect"></select>
+		<div class="row">
+			<input class="field" type="url" placeholder="Endpoint url" id="urlField" />
+		</div>
 
-	<input type="url" placeholder="url" id="urlField" />
+		<button class="button button--full" id="sendButton">Send</button>
 
-	<button id="sendButton">Send</button>
+	</div>
 
 <script src="index.js"></script>
 </body>

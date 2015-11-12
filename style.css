@@ -1,0 +1,54 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background: #F8F8F8;
+}
+
+.container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 1rem;
+	background: white;
+	border-radius: .3rem
+}
+
+.row {
+	margin-bottom: 1rem;
+	display: flex;
+}
+
+.row .field:not(:last-child) {
+	margin-right: 1rem;
+}
+
+.field,
+.button {
+	font-size: 1.2rem;
+	border-radius: .2rem;
+}
+
+.field {
+	display: block;
+	width: 100%;
+	border: 1px solid #ccc;
+	padding: .2rem;
+}
+
+.button {
+	-webkit-appearance: none;
+	border: none;
+	background: #4E99FE;
+	color: white;
+	padding: .5rem;
+	outline: none;
+}
+
+.button--full {
+	display: block;
+	width: 100%;
+}
