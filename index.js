@@ -49,17 +49,17 @@ var randomString = function(length) {
 	return Array(length+1).join(rand().slice(2, 18)).slice(0, length)
 }
 
-var addOption = function(value, select) {
+var addOption = function(select, value, text) {
 	var el = document.createElement("option")
-	el.textContent = value
+	el.textContent = text || value
 	el.value = value
 	select.appendChild(el)
 }
 
 // Setup
-addOption('random', locationSelect)
+addOption(locationSelect, 'random', 'Location (random)')
 for (var i = 0; i < places.length; i++) {
-	addOption(places[i], locationSelect)
+	addOption(locationSelect, places[i])
 }
 
 // For transactions
