@@ -42,6 +42,11 @@ var random = function(num) {
 	return Math.floor(Math.random()*num)
 }
 
+var randomString = function(length) {
+	var rand = function() { return Math.random().toString(36)+'00000000000000000' }
+	return Array(length+1).join(rand().slice(2, 18)).slice(0, length)
+}
+
 var addOption = function(value, select) {
 	var el = document.createElement("option")
 	el.textContent = value
@@ -74,16 +79,20 @@ var getPlace = function() {
 	return value === 'random' ? getRandomPlace() : value
 }
 
+var getId = function(prefix) {
+	return prefix + '_' + randomString(22)
+}
+
 var generateTransaction = function() {
 	return {
 		type: 'transaction.created',
 		data: {
-			account_id: 'acc_00008gju41AHyfLUzBUk8A',
+			account_id: getId('acc'),
 			amount: -getAmount(),
 			created: getISODate(),
 			currency: 'GBP',
 			description: getPlace(),
-			id: 'tx_00008zjky19HyFLAzlUk7t'
+			id: getId('tx'),
 		}
 	}
 }
