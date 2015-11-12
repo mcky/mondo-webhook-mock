@@ -12,13 +12,17 @@ var getAmount = function() {
 	return value === '' ? random(25) : value
 }
 
+var getISODate = function() {
+	return (new Date).toISOString()
+}
+
 var generateTransaction = function() {
 	return {
 		type: 'transaction.created',
 		data: {
 			account_id: 'acc_00008gju41AHyfLUzBUk8A',
 			amount: -getAmount(),
-			created: '2015-09-04T14:28:40Z',
+			created: getISODate(),
 			currency: 'GBP',
 			description: 'Ozone Coffee Roasters',
 			id: 'tx_00008zjky19HyFLAzlUk7t'
