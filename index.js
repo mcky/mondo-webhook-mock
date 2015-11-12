@@ -36,6 +36,8 @@ var amountField = document.getElementById('amountField')
 var locationSelect = document.getElementById('locationSelect')
 var urlField = document.getElementById('urlField')
 var sendButton = document.getElementById('sendButton')
+var accountField = document.getElementById('accountField')
+var transactionField = document.getElementById('transactionField')
 
 // Util
 var random = function(num) {
@@ -83,16 +85,26 @@ var getId = function(prefix) {
 	return prefix + '_' + randomString(22)
 }
 
+var getAccountId = function() {
+	var value = accountField.value
+	return value === '' ? getId('acc') : value
+}
+
+var getTransactionId = function() {
+	var value = transactionField.value
+	return value === '' ? getId('tx') : value
+}
+
 var generateTransaction = function() {
 	return {
 		type: 'transaction.created',
 		data: {
-			account_id: getId('acc'),
+			account_id: getAccountId(),
 			amount: -getAmount(),
 			created: getISODate(),
 			currency: 'GBP',
 			description: getPlace(),
-			id: getId('tx'),
+			id: getTransactionId(),
 		}
 	}
 }
