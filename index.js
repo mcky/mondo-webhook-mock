@@ -64,6 +64,15 @@ var getISODate = function() {
 	return (new Date).toISOString()
 }
 
+var getRandomPlace = function() {
+	return places[random(places.length)]
+}
+
+var getPlace = function() {
+	var value = locationSelect.value
+	return value === 'random' ? getRandomPlace() : value
+}
+
 var generateTransaction = function() {
 	return {
 		type: 'transaction.created',
@@ -72,7 +81,7 @@ var generateTransaction = function() {
 			amount: -getAmount(),
 			created: getISODate(),
 			currency: 'GBP',
-			description: 'Ozone Coffee Roasters',
+			description: getPlace(),
 			id: 'tx_00008zjky19HyFLAzlUk7t'
 		}
 	}
