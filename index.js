@@ -1,3 +1,5 @@
+var sendButton = document.getElementById('sendButton')
+
 var generateTransaction = function() {
 	return {
 		type: 'transaction.created',
@@ -12,5 +14,9 @@ var generateTransaction = function() {
 	}
 }
 
-var data = generateTransaction()
-console.log(data)
+var submit = function() {
+	var data = generateTransaction()
+	console.log(data)
+}
+
+sendButton.addEventListener('click', submit)
