@@ -33,11 +33,25 @@ var places = [
 ]
 
 var amountField = document.getElementById('amountField')
+var locationSelect = document.getElementById('locationSelect')
 var sendButton = document.getElementById('sendButton')
 
 // Util
 var random = function(num) {
 	return Math.floor(Math.random()*num)
+}
+
+var addOption = function(value, select) {
+	var el = document.createElement("option")
+	el.textContent = value
+	el.value = value
+	select.appendChild(el)
+}
+
+// Setup
+addOption('random', locationSelect)
+for (var i = 0; i < places.length; i++) {
+	addOption(places[i], locationSelect)
 }
 
 // For transactions
