@@ -1,11 +1,23 @@
+var amountField = document.getElementById('amountField')
 var sendButton = document.getElementById('sendButton')
+
+// Util
+var random = function(num) {
+	return Math.floor(Math.random()*num)
+}
+
+// For transactions
+var getAmount = function() {
+	var value = amountField.value
+	return value === '' ? random(25) : value
+}
 
 var generateTransaction = function() {
 	return {
 		type: 'transaction.created',
 		data: {
 			account_id: 'acc_00008gju41AHyfLUzBUk8A',
-			amount: -350,
+			amount: -getAmount(),
 			created: '2015-09-04T14:28:40Z',
 			currency: 'GBP',
 			description: 'Ozone Coffee Roasters',
