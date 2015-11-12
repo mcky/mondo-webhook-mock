@@ -65,7 +65,7 @@ for (var i = 0; i < places.length; i++) {
 // For transactions
 var getAmount = function() {
 	var value = amountField.value
-	return value === '' ? random(25) : value
+	return value === '' ? -random(25) : value
 }
 
 var getISODate = function() {
@@ -100,7 +100,7 @@ var generateTransaction = function() {
 		type: 'transaction.created',
 		data: {
 			account_id: getAccountId(),
-			amount: -getAmount(),
+			amount: getAmount(),
 			created: getISODate(),
 			currency: 'GBP',
 			description: getPlace(),
