@@ -1,3 +1,37 @@
+// Places from FourSquare API
+var places = [
+	'The Nightjar',
+	'Ozone Coffee Roasters',
+	'MEAT Mission',
+	'Shoreditch Grind',
+	'The Princess of Shoreditch',
+	'Casita',
+	'Cay Tre',
+	'On The Bab',
+	'Kêu Banh Mi Deli',
+	'Happiness Forgets',
+	'Ruby',
+	'Bel-Air Food',
+	'The Breakfast Club',
+	'Hoxton Grill',
+	'Busaba Eathai',
+	'The Book Club',
+	'Origin Coffee',
+	'The Old Fountain',
+	'Taylor St Baristas',
+	'Lantana Shoreditch',
+	'Ceviche',
+	'Merchants Tavern',
+	'Friends of Ours',
+	'The Attendant',
+	'Callooh Callay',
+	'NOLA',
+	'The Clove Club',
+	'Pitfield London',
+	'Slate Coffee',
+	'Fix 126',
+]
+
 var amountField = document.getElementById('amountField')
 var sendButton = document.getElementById('sendButton')
 
