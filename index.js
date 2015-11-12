@@ -34,6 +34,7 @@ var places = [
 
 var amountField = document.getElementById('amountField')
 var locationSelect = document.getElementById('locationSelect')
+var urlField = document.getElementById('urlField')
 var sendButton = document.getElementById('sendButton')
 
 // Util
@@ -87,9 +88,43 @@ var generateTransaction = function() {
 	}
 }
 
+var getUrl = function() {
+	var url = urlField.value
+
+	if (url !== '' && !/^(f|ht)tps?:\/\//i.test(url)) {
+		url = "http://" + url;
+	}
+
+	return url
+}
+
+var postRequest = function(url, data, callback) {
+	var request = new XMLHttpRequest()
+
+	request.onreadystatechange = function () {
+		if (request.readyState === 4) {
+			if (request.status === 200) {
+				callback(null, JSON.parse(request.response))
+			} else {
+				callback('error', null)
+			}
+		}
+	}
+
+	request.open('POST', url, true)
+	request.setRequestHeader('Content-Type', 'application/json')
+	request.send(JSON.stringify(data))
+}
+
 var submit = function() {
 	var data = generateTransaction()
-	console.log(data)
+	var url = getUrl()
+
+	var cb = function(err, response) {
+		console.log(response)
+	}
+
+	postRequest(url, data, cb)
 }
 
 sendButton.addEventListener('click', submit)
