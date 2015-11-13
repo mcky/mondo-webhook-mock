@@ -5,6 +5,11 @@
 body {
 	margin: 0;
 	background: #F8F8F8;
+	font-family: "Helvetica Neue", Helvetica,Arial, sans-serif;
+}
+
+.hidden {
+	display: none;
 }
 
 .container {
@@ -20,6 +25,10 @@ body {
 .row {
 	margin-bottom: 1rem;
 	display: flex;
+}
+
+.row:last-of-type {
+	margin-bottom: .5rem;
 }
 
 .row .field:not(:last-child) {
@@ -46,9 +55,35 @@ body {
 	color: white;
 	padding: .5rem;
 	outline: none;
+	cursor: pointer;
+}
+
+.button:active {
+	background: #4E8DE1;
 }
 
 .button--full {
 	display: block;
 	width: 100%;
+}
+
+.showPreview,
+.closePreview {
+	text-decoration: none;
+	color: #888;
+}
+
+.showPreview {
+	display: block;
+	text-align: center;
+	margin-bottom: .5rem;
+}
+
+.closePreview {
+	float: right;
+}
+
+.previewBtn:hover,
+.previewBtn:focus {
+	color: #555;
 }

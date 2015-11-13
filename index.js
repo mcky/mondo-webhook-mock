@@ -38,6 +38,8 @@ var urlField = document.getElementById('urlField')
 var sendButton = document.getElementById('sendButton')
 var accountField = document.getElementById('accountField')
 var transactionField = document.getElementById('transactionField')
+var showPreview = document.getElementById('showPreview')
+var closePreview = document.getElementById('closePreview')
 
 // Util
 var random = function(num) {
@@ -149,3 +151,23 @@ var submit = function() {
 }
 
 sendButton.addEventListener('click', submit)
+
+var generatePreview = function() {
+	var data = generateTransaction()
+	preview.innerHTML = JSON.stringify(data, null, '\t')
+}
+
+var previewShown = false
+var togglePreview = function(evt) {
+	evt.preventDefault()
+	if (!previewShown) generatePreview()
+	previewShown = !previewShown
+	form.classList.toggle('hidden')
+	closePreview.classList.toggle('hidden')
+	preview.classList.toggle('hidden')
+}
+
+showPreview.addEventListener('click', togglePreview)
+closePreview.addEventListener('click', togglePreview)
+
+

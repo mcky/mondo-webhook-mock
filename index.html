@@ -3,25 +3,36 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Mondo webhook mock</title>
+	<meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 	<div class="container">
 
-		<div class="row">
-			<input class="field" type="text" placeholder="Account ID (random)" id="accountField" />
-			<input class="field" type="text" placeholder="Transaction ID (random)" id="transactionField" />
+		<!-- @TODO: Change to actual form tag -->
+		<div class="form" id="form">
+
+			<div class="row">
+				<input class="field" type="text" placeholder="Account ID (random)" id="accountField" />
+				<input class="field" type="text" placeholder="Transaction ID (random)" id="transactionField" />
+			</div>
+
+			<div class="row">
+				<input class="field" type="number" placeholder="Amount (random)" id="amountField" />
+				<select class="field" id="locationSelect"></select>
+			</div>
+
+			<div class="row">
+				<input class="field" type="url" placeholder="Endpoint url" id="urlField" />
+			</div>
+
+
+			<a class="showPreview" id="showPreview" href="#">Preview</a>
 		</div>
 
-		<div class="row">
-			<input class="field" type="number" placeholder="Amount (random)" id="amountField" />
-			<select class="field" id="locationSelect"></select>
-		</div>
-
-		<div class="row">
-			<input class="field" type="url" placeholder="Endpoint url" id="urlField" />
-		</div>
+		<a href="#" class="closePreview hidden" id="closePreview">x</a>
+		<pre class="preview hidden" id="preview"></pre>
 
 		<button class="button button--full" id="sendButton">Send</button>
 
