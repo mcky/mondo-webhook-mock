@@ -32,14 +32,17 @@ var places = [
 	'Fix 126',
 ]
 
-var amountField = document.getElementById('amountField')
-var locationSelect = document.getElementById('locationSelect')
-var urlField = document.getElementById('urlField')
-var sendButton = document.getElementById('sendButton')
-var accountField = document.getElementById('accountField')
-var transactionField = document.getElementById('transactionField')
-var showPreview = document.getElementById('showPreview')
-var closePreview = document.getElementById('closePreview')
+var getByIds = function(elArr, xx) {
+	for (var i = 0; i < elArr.length; i++) {
+		var el = elArr[i]
+		xx[el] = document.getElementById(el)
+	}
+}
+
+var els = ['amountField', 'locationSelect', 'urlField', 'sendButton',
+			'accountField', 'transactionField', 'showPreview', 'closePreview']
+
+getByIds(els, this)
 
 // Util
 var random = function(num) {
