@@ -29,4 +29,4 @@ Example payload:
   }
 }
 ```
-[Mondo transaction webhook docs](https://getmondo.co.uk/docs/#transaction-created)
+[Mondo transaction webhook docs](https://monzo.com/docs/#transaction-created)
