@@ -32,18 +32,6 @@ var places = [
 	'Fix 126',
 ]
 
-var getByIds = function(elArr, xx) {
-	for (var i = 0; i < elArr.length; i++) {
-		var el = elArr[i]
-		xx[el] = document.getElementById(el)
-	}
-}
-
-var els = ['amountField', 'locationSelect', 'urlField', 'sendButton',
-			'accountField', 'transactionField', 'showPreview', 'closePreview']
-
-getByIds(els, this)
-
 // Util
 var random = function(num) {
 	return Math.floor(Math.random()*num)
