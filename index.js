@@ -49,11 +49,33 @@ var addOption = function(select, value, text) {
 	select.appendChild(el)
 }
 
+var getQueryParam = function(param) {
+	var str = location.search.match(new RegExp(param + '=(.*?)($|\&)', 'i'))
+	return str ? str[1] : null
+}
+
 // Setup
 addOption(locationSelect, 'random', 'Location (random)')
 for (var i = 0; i < places.length; i++) {
 	addOption(locationSelect, places[i])
 }
+
+// Prefill fields based on query params
+var paramMap = {
+	'url': 'urlField',
+	'account_id': 'accountField',
+	'amount': 'amountField',
+	'transaction_id': 'transactionField',
+}
+
+Object.keys(paramMap).forEach(function(param) {
+	var urlPrefill = getQueryParam(param)
+
+	if (urlPrefill) {
+		document.getElementById(paramMap[param]).value = urlPrefill
+	}
+})
+
 
 // For transactions
 var getAmount = function() {
