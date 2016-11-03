@@ -62,7 +62,7 @@ for (var i = 0; i < places.length; i++) {
 
 // Prefill fields based on query params
 var paramMap = {
-	'url': 'urlField',
+	'endpoint': 'urlField',
 	'account_id': 'accountField',
 	'amount': 'amountField',
 	'transaction_id': 'transactionField',
